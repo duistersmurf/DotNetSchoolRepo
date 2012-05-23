@@ -10,29 +10,27 @@ namespace Storelib
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServiceStore" in both code and config file together.
     public class ServiceStore : IServiceStore
     {
-        public void Login()
+        public bool Login()
+        {
+            return false;
+        }
+        public bool Signup()
+        {
+            return false;
+        }
+        public void setProduct()
         {
         }
-        public void Signup()
+
+        public List<Product> GetProducts()
         {
+            return new List<Product> { new Product("iPad", 20), new Product("iPod", 200) };
         }
 
-    public class Product
-    {
-        public string Name { get; set; }
-        public double Price { get; set; }
+        public List<Persoon> getPersoon()
+        {
 
-    }
-    /*
-   public class Persoon
-   {
-       public string Name { get; set; }
-       public string Password { get; set; }
-   }
-
-   public class Store
-   {
-       public string product { get; set;
-   }*/
+            return new List<Persoon> { new Persoon("hewnk"), new Persoon("nmewaton") };
+        }
     }
 }

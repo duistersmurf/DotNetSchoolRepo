@@ -12,37 +12,16 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
-        void Login();
+        bool Login();
         [OperationContract]
-        void signup();
+        bool signup();
+        [OperationContract]
+        Product getProduct();
+        [OperationContract]
+        Persoon getPersoon();
 
-        [DataContract]
-        public class Product
-        {
-            [DataMember]
-            public string Name { get; set; }
-            [DataMember]
-            public double Price { get; set; }
-            [DataMember]
-            public Product(String name)
-            {
-                Name = name;
-            }
-        }
+      
 
-        [DataContract]
-        public class Persoon
-        {
-            [DataMember]
-            public string Name { get; set; }
-            [DataMember]
-            public string Password { get; set; }
-            [DataMember]
-            public Persoon(String name)
-            {
-                Name = name;
-            }
-        }
+  
     }
-
 }
