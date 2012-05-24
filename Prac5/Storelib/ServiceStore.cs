@@ -18,9 +18,24 @@ namespace Storelib
         {
             return false;
         }
-        public void setProduct()
+      /*  void setProduct()
         {
         }
+        void setPersoon()
+        {
+        }
+        void setProductPrice()
+        {
+        }
+        void setProductName()
+        {
+        }
+        void setName()
+        {
+        }
+        void setPassword()
+        {
+        }*/
 
         public List<Product> GetProducts()
         {

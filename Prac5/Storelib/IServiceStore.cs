@@ -19,9 +19,46 @@ namespace Storelib
         Product getProduct();
         [OperationContract]
         Persoon getPersoon();
+        [OperationContract]
+        void setProduct();
+        [OperationContract]
+        void setPersoon();
+        /*[OperationContract]
+        void setProductPrice();
+        [OperationContract]
+        void setProductName();
+        [OperationContract]
+        void setName();
+        [OperationContract]
+        void setPassword();*/
 
-      
+        [DataContract]
+        public class Product
+        {
+            [DataMember]
+            public String ProductName { get; private set; }
+            [DataMember]
+            public Double ProductPrice { get; private set; }
+            [DataMember]
+            public Product(String productname, Double productprice)
+            {
+                ProductName = productname;
+                ProductPrice = productprice;
+            }
+        }
 
-  
+        [DataContract]
+        public class Persoon
+        {
+            [DataMember]
+            public string Name { get; set; }
+            [DataMember]
+            public string Password { get; set; }
+            [DataMember]
+            public Persoon(String name)
+            {
+                Name = name;
+            }
+        }
     }
 }
