@@ -12,25 +12,29 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
-        bool Login();
+        Person Login();
         [OperationContract]
         bool signup();
         [OperationContract]
-        Product getProduct();
+        Product getProductlistStore();
         [OperationContract]
-        Persoon getPersoon();
+        Product getProductlistPersoon();
         [OperationContract]
-        void setProduct();
+        Person getPerson();
         [OperationContract]
-        void setPersoon();
-        /*[OperationContract]
-        void setProductPrice();
+        void setProductStore();
         [OperationContract]
-        void setProductName();
+        void setProductPerson();
         [OperationContract]
-        void setName();
+        void setPerson();
         [OperationContract]
-        void setPassword();*/
+        void buyProduct();
+        [OperationContract]
+        bool searchProductPerson();
+        [OperationContract]
+        Product getProductPerson();
+        [OperationContract]
+        Product getProductStore();
 
         [DataContract]
         public class Product
@@ -40,6 +44,8 @@ namespace Storelib
             [DataMember]
             public Double ProductPrice { get; private set; }
             [DataMember]
+            public Int32 AvalibleProducts { get; set; }
+            [DataMember]
             public Product(String productname, Double productprice)
             {
                 ProductName = productname;
@@ -48,17 +54,28 @@ namespace Storelib
         }
 
         [DataContract]
-        public class Persoon
+        public class Person
         {
             [DataMember]
             public string Name { get; set; }
             [DataMember]
-            public string Password { get; set; }
+            public string Password { get; set; }          
             [DataMember]
-            public Persoon(String name)
+            public int Saldo { get; set; }
+            [DataMember]
+            public List<Product>PersonsProducts = new List<Product>();
+            [DataMember]
+            public Person(String name)
             {
                 Name = name;
             }
+        }
+
+        [DataContract]
+        public class Store
+        {
+            [DataMember]
+            public List<Product> StoreProducts = new List<Product>();
         }
     }
 }

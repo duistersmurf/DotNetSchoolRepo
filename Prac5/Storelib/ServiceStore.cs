@@ -10,42 +10,110 @@ namespace Storelib
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServiceStore" in both code and config file together.
     public class ServiceStore : IServiceStore
     {
-        public bool Login()
+        Store store;
+        Person person;
+        Person Login(String nm, String pw)
+        {            
+            if (true)
+            {
+                store = new Store();
+                person = new Person("Henk", "test");
+            }
+            return person;
+        }
+        bool Signup(String nm, String pw)
         {
+            if (true)
+            {
+                setPerson(nm, pw);
+            }
             return false;
         }
-        public bool Signup()
+        void setProductStore(String nm, int pr)
         {
-            return false;
+            Product pd = new Product(nm, pr);
+            store.StoreProducts.Add(pd);
         }
-      /*  void setProduct()
+        void setPerson(String nm, String pw)
         {
-        }
-        void setPersoon()
-        {
-        }
-        void setProductPrice()
-        {
-        }
-        void setProductName()
-        {
-        }
-        void setName()
-        {
-        }
-        void setPassword()
-        {
-        }*/
+           Person p =  new Person(nm, pw);
+           store.StoreCustomers.Add(p);
 
-        public List<Product> GetProducts()
+        }
+        public List<Product> getProductlistStore()
         {
-            return new List<Product> { new Product("iPad", 20), new Product("iPod", 200) };
+            return store.StoreProducts;
+        }
+        public List<Product> getProductlistPersoon()
+        {
+            return person.PersonsProducts;
         }
 
-        public List<Persoon> getPersoon()
+        public List<Person> getPerson()
         {
+            return store.StoreCustomers;           
+        }
+        public void buyProduct(Product pt, int aantal)
+        {
+            Product storep = getProductStore(pt);
+            if (searchProductPerson(pt))
+            {
+                Product pd = getProductPerson(pt);
+                pd.AvalibleProducts = pd.AvalibleProducts + aantal;
+                storep.AvalibleProducts = storep.AvalibleProducts - aantal;
+                person.Saldo = person.Saldo - pd.ProductPrice;
+            }
+            else
+            {
+                person.PersonsProducts.Add(pt);
+                person.Saldo = person.Saldo - pt.ProductPrice;
+                storep.AvalibleProducts = storep.AvalibleProducts - aantal;
+            }
 
-            return new List<Persoon> { new Persoon("hewnk"), new Persoon("nmewaton") };
+        }
+        public bool searchProductPerson(Product pt)
+        {
+            bool b = false;
+
+            foreach (Product pr in person.PersonsProducts)
+            {
+                if (pt.ProductName == pr.ProductName)
+                {
+                    b = true;
+
+                }          
+            }
+
+            return b;
+        }
+        public Product getProductPerson(Product pt)
+        {
+            Product pd = pt;
+
+            foreach (Product pr in person.PersonsProducts)
+            {
+                if (pd.ProductName == pr.ProductName)
+                {
+                    pd = pr;
+
+                }
+            }
+
+            return pd;
+        }
+        public Product getProductStore(Product pt)
+        {
+            Product pd = pt;
+
+            foreach (Product pr in store.StoreProducts)
+            {
+                if (pd.ProductName == pr.ProductName)
+                {
+                    pd = pr;
+
+                }
+            }
+            return pd;
         }
     }
 }
