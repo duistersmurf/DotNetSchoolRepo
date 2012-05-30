@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Storelib;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace Storelib
 {
-    [Serializable]
-    class Product
+    [DataContract]
+    public class Product
     {
-        
+        [DataMember]
         public String ProductName { get; private set; }
+        [DataMember]
         public Double ProductPrice { get; private set; }
-        public int AvalibleProducts { get; set; }
-
+        [DataMember]
+        public Int32 AvalibleProducts { get; set; }
+        /* [DataMember]
         public Product(String productname, Double productprice)
         {
             ProductName = productname;
             ProductPrice = productprice;
-        }
+        }*/
     }
 }

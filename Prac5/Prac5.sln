@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storelib", "Storelib\Storel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreClient", "StoreClient\StoreClient.csproj", "{563D2043-3E60-4D73-82C6-985701EABDED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testConsole", "testConsole\testConsole.csproj", "{7CA40DB7-769A-4EBD-B882-778E119D973A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{563D2043-3E60-4D73-82C6-985701EABDED}.Release|Mixed Platforms.Build.0 = Release|x86
 		{563D2043-3E60-4D73-82C6-985701EABDED}.Release|x86.ActiveCfg = Release|x86
 		{563D2043-3E60-4D73-82C6-985701EABDED}.Release|x86.Build.0 = Release|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Debug|x86.ActiveCfg = Debug|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Debug|x86.Build.0 = Debug|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Release|Any CPU.ActiveCfg = Release|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Release|Mixed Platforms.Build.0 = Release|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Release|x86.ActiveCfg = Release|x86
+		{7CA40DB7-769A-4EBD-B882-778E119D973A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

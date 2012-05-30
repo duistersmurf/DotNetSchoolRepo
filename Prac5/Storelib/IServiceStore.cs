@@ -12,70 +12,34 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
-        Person Login();
+        void startup();
         [OperationContract]
-        bool signup();
+        Person login(String nm, String pw);
         [OperationContract]
-        Product getProductlistStore();
+        bool signup(String nm, String pw);
         [OperationContract]
-        Product getProductlistPersoon();
+        void setProductStore(String nm, int pr);
         [OperationContract]
-        Person getPerson();
+        void setPerson(String nm, String pw);
         [OperationContract]
-        void setProductStore();
+        List<Product> getProductlistStore();
         [OperationContract]
-        void setProductPerson();
+        List<Product> getProductlistPersoon();
         [OperationContract]
-        void setPerson();
+        List<Person> getPerson();
         [OperationContract]
-        void buyProduct();
+        void buyProduct(Product pt, int aantal);
+        //[OperationContract]
+        //void setProductPerson();
         [OperationContract]
-        bool searchProductPerson();
+        bool searchProductPerson(Product pt);
         [OperationContract]
-        Product getProductPerson();
+        Product getProductPerson(Product pt);
         [OperationContract]
-        Product getProductStore();
-
-        [DataContract]
-        public class Product
-        {
-            [DataMember]
-            public String ProductName { get; private set; }
-            [DataMember]
-            public Double ProductPrice { get; private set; }
-            [DataMember]
-            public Int32 AvalibleProducts { get; set; }
-            [DataMember]
-            public Product(String productname, Double productprice)
-            {
-                ProductName = productname;
-                ProductPrice = productprice;
-            }
-        }
-
-        [DataContract]
-        public class Person
-        {
-            [DataMember]
-            public string Name { get; set; }
-            [DataMember]
-            public string Password { get; set; }          
-            [DataMember]
-            public int Saldo { get; set; }
-            [DataMember]
-            public List<Product>PersonsProducts = new List<Product>();
-            [DataMember]
-            public Person(String name)
-            {
-                Name = name;
-            }
-        }
-
-        [DataContract]
-        public class Store
-        {
-            [DataMember]
-            public List<Product> StoreProducts = new List<Product>();
-        }
+        Product getProductStore(Product pt);
+        [OperationContract]
+        bool searchPerson(String nm);
+        [OperationContract]
+        bool checkPassword(String nm, String pw);
     }
-}
+ }

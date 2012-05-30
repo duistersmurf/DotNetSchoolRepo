@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace Storelib
 {
-    class Person 
+    [DataContract]
+    public class Person
     {
-        public string Name { get; set; }
-        public string Password { get; set; }
+        [DataMember]
+        public string Name { get; set; }  
+        [DataMember]
+        public string Password { get; set; }    
+        [DataMember]
         public double Saldo { get; set; }
-        public List<Product>PersonsProducts = new List<Product>();
-        public Person(String name, String pw)
-        {
-            Name = name;
-            Password = pw;
-        }
+        [DataMember]
+        public List<Product> PersonsProducts = new List<Product>();
     }
 }

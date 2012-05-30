@@ -4,6 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Storelib;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Storelib
 {
@@ -12,31 +15,62 @@ namespace Storelib
     {
         Store store;
         Person person;
-        Person Login(String nm, String pw)
-        {            
-            if (true)
+        int id = 0;
+        DataSet ds = new DataSet();
+        SqlConnection con = new SqlConnection();
+        public void startup()
+        {
+            con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            store = new Store();
+            con.Open();
+
+            SqlDataReader myReader = null;
+            SqlCommand myCommand = new SqlCommand("select * from Person", con);
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
             {
-                store = new Store();
-                person = new Person("Henk", "test");
+                Person p = new Person();
+                p.Name = myReader["PersonName"].ToString();
+                       p.Password = myReader["PersonPassword"].ToString();
+                       store.StoreCustomers.Add(p);
+            }
+            con.Close();
+
+            id = store.StoreCustomers.Count() + 1;
+
+        }
+        public Person login(String nm, String pw)
+        {            
+            if (checkPassword(nm,pw))
+            {
+                
+                person = new Person();
+                person.Name = nm;
+
+                //person.PersonsProducts = 
             }
             return person;
         }
-        bool Signup(String nm, String pw)
+       public bool signup(String nm, String pw)
         {
-            if (true)
+            if (searchPerson(nm))
             {
-                setPerson(nm, pw);
+                SqlDataReader myReader = null;
+                SqlCommand myCommand = new SqlCommand("insert into Person VALUES (" + id + "," + nm + "," + pw +")", con);
+                myReader = myCommand.ExecuteReader();
             }
             return false;
         }
-        void setProductStore(String nm, int pr)
+       public  void setProductStore(String nm, int pr)
         {
-            Product pd = new Product(nm, pr);
+            Product pd = new Product();
             store.StoreProducts.Add(pd);
         }
-        void setPerson(String nm, String pw)
+        public void setPerson(String nm, String pw)
         {
-           Person p =  new Person(nm, pw);
+           Person p =  new Person();
+           p.Name = nm;
+           p.Password = pw;
            store.StoreCustomers.Add(p);
 
         }
@@ -114,6 +148,40 @@ namespace Storelib
                 }
             }
             return pd;
+        }
+        public bool searchPerson(String nm)
+        {
+            bool b = false;
+
+            foreach (Person pr in store.StoreCustomers)
+            {
+                if (!(nm == pr.Name))
+                {
+                    b = true;
+
+                }
+            }
+
+            return b;
+        }
+        public bool checkPassword(String nm, String pw)
+        {
+            bool b = false;
+            
+            foreach(Person p in store.StoreCustomers)
+            {
+                if (nm == p.Name)
+                {
+                    if (pw == p.Password)
+                    {
+                        b = true;
+                    }
+
+                }
+            }
+
+
+                return b;
         }
     }
 }
