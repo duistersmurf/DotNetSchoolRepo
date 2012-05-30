@@ -11,11 +11,13 @@ namespace Storelib
     public class Person
     {
         [DataMember]
+        public int Id { get; set; }
+        [DataMember]
         public string Name { get; set; }  
         [DataMember]
         public string Password { get; set; }    
         [DataMember]
-        public double Saldo { get; set; }
+        public int Saldo { get; set; }
         [DataMember]
         public List<Product> PersonsProducts = new List<Product>();
     }

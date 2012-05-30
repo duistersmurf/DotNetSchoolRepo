@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreClient", "StoreClient\StoreClient.csproj", "{563D2043-3E60-4D73-82C6-985701EABDED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testConsole", "testConsole\testConsole.csproj", "{7CA40DB7-769A-4EBD-B882-778E119D973A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86003EDE-4C88-4E05-B35E-F809D6994C53} = {86003EDE-4C88-4E05-B35E-F809D6994C53}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

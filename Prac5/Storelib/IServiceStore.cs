@@ -12,9 +12,11 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
+        String test();
+        [OperationContract]
         void startup();
         [OperationContract]
-        Person login(String nm, String pw);
+        bool login(String nm, String pw);
         [OperationContract]
         bool signup(String nm, String pw);
         [OperationContract]
@@ -28,7 +30,7 @@ namespace Storelib
         [OperationContract]
         List<Person> getPerson();
         [OperationContract]
-        void buyProduct(Product pt, int aantal);
+        bool buyProduct(Product pt, int aantal);
         //[OperationContract]
         //void setProductPerson();
         [OperationContract]
@@ -41,5 +43,7 @@ namespace Storelib
         bool searchPerson(String nm);
         [OperationContract]
         bool checkPassword(String nm, String pw);
+        [OperationContract]
+        Product getProductTestStore(String nm);
     }
  }

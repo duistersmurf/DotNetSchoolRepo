@@ -11,16 +11,12 @@ namespace Storelib
     public class Product
     {
         [DataMember]
-        public String ProductName { get; private set; }
+        public int ProductID { get; set; }
         [DataMember]
-        public Double ProductPrice { get; private set; }
+        public String ProductName { get;  set; }
+        [DataMember]
+        public int ProductPrice { get; set; }
         [DataMember]
         public Int32 AvalibleProducts { get; set; }
-        /* [DataMember]
-        public Product(String productname, Double productprice)
-        {
-            ProductName = productname;
-            ProductPrice = productprice;
-        }*/
     }
 }

@@ -28,15 +28,28 @@ namespace StoreClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc3));
             t.Start();
             this.Close();
         }
-        public static void ThreadProc()
+        public static void ThreadProc2()
         {
 
             Application.Run(new Form2());
 
+        }
+        public static void ThreadProc3()
+        {
+
+            Application.Run(new Form3());
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc2));
+            t.Start();
+            this.Close();
         }
     }
 }
