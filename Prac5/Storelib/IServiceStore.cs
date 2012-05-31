@@ -12,8 +12,6 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
-        String test();
-        [OperationContract]
         void startup();
         [OperationContract]
         bool login(String nm, String pw);

@@ -15,29 +15,14 @@ namespace Storelib
     {
         Store store = new Store();
         Person person =new Person();
-        int id = 0;
+        int id;
         DataSet ds = new DataSet();
         SqlConnection con = new SqlConnection();
-        public String test()
-        {
-            //store = new Store();
-            String s = null;
-            Person pr = new Person();
-            pr.Id = 1;
-            pr.Name = "kaas";
-            pr.Password = "saak";
-            store.StoreCustomers.Add(pr);
-            foreach (Person p in store.StoreCustomers)
-            {
-                s = p.Name;
-            }
 
-            return s;
-        }
         public void startup()
         {     
-            //con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
-            con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
            // store = new Store();
             con.Open();
 
@@ -58,19 +43,20 @@ namespace Storelib
 
             SqlDataReader myReader1 = null;
             SqlCommand myCommand1 = new SqlCommand("select * from Products", con);
-            myReader1 = myCommand.ExecuteReader();
+            myReader1 = myCommand1.ExecuteReader();
             while (myReader1.Read())
             {
                 Product pt = new Product();
-                //pt.ProductID = int.Parse(myReader1["ProductID"].ToString());
-                pt.ProductName = myReader1["ProductName"].ToString();
-                pt.ProductPrice = int.Parse(myReader1["ProductPrice"].ToString());
-                pt.AvalibleProducts = int.Parse(myReader1["ProductAvalible"].ToString());
+                pt.ProductID = int.Parse(myReader1["ProductID"].ToString());
+                pt.ProductName = myReader1["ProductName"].ToString().Trim();
+                pt.ProductPrice = int.Parse(myReader1["ProductPrice"].ToString().Trim());
+                pt.AvalibleProducts = int.Parse(myReader1["ProductAvalible"].ToString().Trim());
                 store.StoreProducts.Add(pt);
             }
             con.Close();
 
-            id = store.StoreCustomers.Count();                     
+            id = store.StoreCustomers.Count();
+            Console.WriteLine(id);      
         }
         public bool login(String nm, String pw)
         {
@@ -93,14 +79,27 @@ namespace Storelib
         }
        public bool signup(String nm, String pw)
         {
-            con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
             if (searchPerson(nm))
             {
-                con.Open();
-                SqlDataReader myReader = null;
-                SqlCommand myCommand = new SqlCommand("insert into Person VALUES (" + id + "," + nm + "," + pw +")", con);
-                myReader = myCommand.ExecuteReader();
-                con.Close();
+                try
+                {                    
+                    con.Open();
+                    int idt = id+1;
+                    Console.WriteLine(idt + " " + nm + " " + pw);
+                    Console.WriteLine("insert into Person (PersonID, PersonName, PersonPassword) VALUES (" + 3 + "," + nm + "," + pw + ")");
+                    SqlCommand myCommand = new SqlCommand("INSERT INTO Person (PersonID, PersonName, PersonPassword) VALUES (" + 3 + "," + nm + "," + pw + ")", con);                   
+                    myCommand.ExecuteNonQuery();
+                   // SqlCommand mySqlCommand = con.CreateCommand();
+                    //mySqlCommand.CommandText = "INSERT INTO Person (PersonID, PersonName, PersonPassword) VALUES (" + 3 + "," + nm + "," + pw + ")";
+                    con.Close();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
             return false;
         }
@@ -109,7 +108,7 @@ namespace Storelib
             Product pd = new Product();
             store.StoreProducts.Add(pd);
         }
-        public void setPerson(String nm, String pw)
+        public void setPerson(string nm, string pw)
         {
            Person p =  new Person();
            p.Name = nm;
@@ -134,21 +133,41 @@ namespace Storelib
         {
             bool b = false;
 
-            Product storep = getProductStore(pt);
+            Product storep = pt;
+            Console.WriteLine(pt.ProductName);
             if (searchProductPerson(pt))
             {
                 Product pd = getProductPerson(pt);
                 pd.AvalibleProducts = pd.AvalibleProducts + aantal;
                 storep.AvalibleProducts = storep.AvalibleProducts - aantal;
                 person.Saldo = person.Saldo - pd.ProductPrice;
+                Console.WriteLine("searcHproduct is true");
                 b = true;
+                
+                foreach (Product ptd in person.PersonsProducts)
+                {
+                    Console.WriteLine(ptd.ProductName);
+                    Console.WriteLine(ptd.AvalibleProducts);
+                }
             }
             else
             {
-                person.PersonsProducts.Add(pt);
+                Product prd = new Product();
+                prd.ProductName = pt.ProductName;
+                //prd.ProductID = pID;
+                prd.AvalibleProducts = aantal;
+                person.PersonsProducts.Add(prd);
                 person.Saldo = person.Saldo - pt.ProductPrice;
                 storep.AvalibleProducts = storep.AvalibleProducts - aantal;
+                Console.WriteLine("searcHproduct is false");
                 b = true;
+                
+                foreach (Product ptd in person.PersonsProducts)
+                {
+                    Console.WriteLine(ptd.ProductName);
+                    Console.WriteLine(ptd.AvalibleProducts + "k");
+                }
+
             }
 
             return b;
@@ -159,7 +178,7 @@ namespace Storelib
 
             foreach (Product pr in person.PersonsProducts)
             {
-                if (pt.ProductName == pr.ProductName)
+                if (pt.ProductName.Trim() == pr.ProductName.Trim())
                 {
                     b = true;
 
@@ -172,13 +191,14 @@ namespace Storelib
         {
             Product pd = pt;
 
+            Console.WriteLine(pt.ProductName + "get productperson");
             foreach (Product pr in person.PersonsProducts)
             {
-                if (pd.ProductName == pr.ProductName)
+                Console.WriteLine("foreach getproductperson");
+                if (pt.ProductName.Trim() == pr.ProductName.Trim())
                 {
                     pd = pr;
-
-                }
+                }               
             }
 
             return pd;
@@ -186,6 +206,7 @@ namespace Storelib
         public Product getProductStore(Product pt)
         {
             Product pd = pt;
+            
 
             foreach (Product pr in store.StoreProducts)
             {
@@ -199,35 +220,53 @@ namespace Storelib
         }
         public bool searchPerson(String nm)
         {
-            bool b = false;
 
-            foreach (Person pr in store.StoreCustomers)
+            bool b = true;
+
+            con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            // store = new Store();
+            con.Open();
+
+            SqlDataReader myReader = null;
+            SqlCommand myCommand = new SqlCommand("select * from Person", con);
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
             {
-                if (!(nm == pr.Name))
-                {
-                    b = true;
-
+                if (myReader["PersonName"].ToString().Trim().Equals(nm))
+                {                   
+                        b = true;
                 }
-            }
 
-            return b;
+            }
+            con.Close();
+
+            return b;       
         }
-        public bool checkPassword(String nm, String pw)
+        public bool checkPassword(string nm, string pw)
         {
             bool b = false;
-            
-            foreach(Person p in store.StoreCustomers)
-            {
-                if (p.Name == nm)
+
+            con.ConnectionString = @"Data Source=ruwan-flaptop\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            //con.ConnectionString = @"Data Source=duistersmurf-pc\SQLEXPRESS;Initial Catalog=webstore;Integrated Security=True";
+            // store = new Store();
+            con.Open();
+
+            SqlDataReader myReader = null;
+            SqlCommand myCommand = new SqlCommand("select * from Person", con);
+            myReader = myCommand.ExecuteReader();
+            while (myReader.Read())
+            {              
+                if (myReader["PersonName"].ToString().Trim().Equals(nm))
                 {
-                    if (p.Password == pw)
+                    if (myReader["PersonPassword"].ToString().Trim() == pw)
                     {
                         b = true;
                     }
-
                 }
-            }
 
+            }
+            con.Close();
 
                 return b;
         }
@@ -237,6 +276,8 @@ namespace Storelib
             Product pt = new Product();
             foreach (Product p in store.StoreProducts)
             {
+                Console.WriteLine(p.ProductName + "get product test store" );
+                Console.WriteLine(nm + "get product test store");
                 if (p.ProductName == nm)
                     {
                         pt = p;

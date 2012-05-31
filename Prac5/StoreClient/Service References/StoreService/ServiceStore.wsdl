@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceStore" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Storelib" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceStore_test_InputMessage">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_startup_InputMessage">
+    <wsdl:part name="parameters" element="tns:startup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_startup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:startupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_signup_InputMessage">
+    <wsdl:part name="parameters" element="tns:signup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_signup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:signupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_setProductStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:setProductStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_setProductStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setProductStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_setPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:setPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_setPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductlistStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductlistStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductlistStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductlistStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductlistPersoon_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductlistPersoon" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductlistPersoon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductlistPersoonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_buyProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:buyProduct" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_buyProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buyProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_searchProductPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchProductPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_searchProductPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchProductPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_searchPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_searchPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_checkPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_checkPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductTestStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductTestStore" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getProductTestStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductTestStoreResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceStore">
+    <wsdl:operation name="test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/test" message="tns:IServiceStore_test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/testResponse" message="tns:IServiceStore_test_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="startup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/startup" message="tns:IServiceStore_startup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/startupResponse" message="tns:IServiceStore_startup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/login" message="tns:IServiceStore_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/loginResponse" message="tns:IServiceStore_login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="signup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/signup" message="tns:IServiceStore_signup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/signupResponse" message="tns:IServiceStore_signup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setProductStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/setProductStore" message="tns:IServiceStore_setProductStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/setProductStoreResponse" message="tns:IServiceStore_setProductStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/setPerson" message="tns:IServiceStore_setPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/setPersonResponse" message="tns:IServiceStore_setPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductlistStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductlistStore" message="tns:IServiceStore_getProductlistStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductlistStoreResponse" message="tns:IServiceStore_getProductlistStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductlistPersoon">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductlistPersoon" message="tns:IServiceStore_getProductlistPersoon_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductlistPersoonResponse" message="tns:IServiceStore_getProductlistPersoon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getPerson" message="tns:IServiceStore_getPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getPersonResponse" message="tns:IServiceStore_getPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buyProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/buyProduct" message="tns:IServiceStore_buyProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/buyProductResponse" message="tns:IServiceStore_buyProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchProductPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/searchProductPerson" message="tns:IServiceStore_searchProductPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/searchProductPersonResponse" message="tns:IServiceStore_searchProductPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductPerson" message="tns:IServiceStore_getProductPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductPersonResponse" message="tns:IServiceStore_getProductPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductStore" message="tns:IServiceStore_getProductStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductStoreResponse" message="tns:IServiceStore_getProductStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/searchPerson" message="tns:IServiceStore_searchPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/searchPersonResponse" message="tns:IServiceStore_searchPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/checkPassword" message="tns:IServiceStore_checkPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/checkPasswordResponse" message="tns:IServiceStore_checkPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductTestStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductTestStore" message="tns:IServiceStore_getProductTestStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductTestStoreResponse" message="tns:IServiceStore_getProductTestStore_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceStore" type="tns:IServiceStore">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="test">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startup">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/startup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="signup">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/signup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setProductStore">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/setProductStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/setPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductlistStore">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductlistStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductlistPersoon">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductlistPersoon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buyProduct">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/buyProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchProductPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/searchProductPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductStore">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/searchPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkPassword">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/checkPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductTestStore">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductTestStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceStore">
+    <wsdl:port name="BasicHttpBinding_IServiceStore" binding="tns:BasicHttpBinding_IServiceStore">
+      <soap:address location="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

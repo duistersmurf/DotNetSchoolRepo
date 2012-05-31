@@ -11,23 +11,39 @@ namespace testConsole
     {
         static void Main(string[] args)
         {            
-          ServiceStoreClient StoreProxy = new ServiceStoreClient();
+         ServiceStoreClient StoreProxy = new ServiceStoreClient();
 
-          Console.WriteLine("test");
+          Console.WriteLine("test console is running");
            StoreProxy.startup();
          //     Console.WriteLine(StoreProxy.startup());
         //      StoreProxy.setPerson("delta","atled");
 
             
-               Console.WriteLine("test");
-              if (StoreProxy.buyProduct(StoreProxy.getProductTestStore("map"), 1))
+               Console.WriteLine("startup completed");
+              /*if (StoreProxy.login("Henk","kneH"))
                {
                    Console.WriteLine("true");
                }
               else
                {
                    Console.WriteLine("error");
-               }
+               }*/
+              if (StoreProxy.buyProduct(StoreProxy.getProductTestStore("map"), 1))
+              {
+                  Console.WriteLine("true");
+              }
+              else
+              {
+                  Console.WriteLine("false");
+              }
+            /* if (StoreProxy.signup("Piet", "tieP"))
+              {
+                  Console.WriteLine("true");
+              }
+              else
+              {
+                  Console.WriteLine("false");
+              }*/
              Console.ReadKey();
         }
     }
