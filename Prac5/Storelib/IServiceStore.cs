@@ -14,27 +14,23 @@ namespace Storelib
         [OperationContract]
         void startup();
         [OperationContract]
-        bool login(String nm, String pw);
+        Person login(String nm, String pw);
         [OperationContract]
         bool signup(String nm, String pw);
         [OperationContract]
         void setProductStore(String nm, int pr);
         [OperationContract]
-        void setPerson(String nm, String pw);
+        List<Product> setPersonProduct(Person p);
         [OperationContract]
-        List<Product> getProductlistStore();
-        [OperationContract]
-        List<Product> getProductlistPersoon();
-        [OperationContract]
-        List<Person> getPerson();
-        [OperationContract]
-        bool buyProduct(Product pt, int aantal);
+        List<int> getJProductID(Person p);
+       // [OperationContract]
+       // bool buyProduct(Product pt, int aantal);
         //[OperationContract]
         //void setProductPerson();
-        [OperationContract]
-        bool searchProductPerson(Product pt);
-        [OperationContract]
-        Product getProductPerson(Product pt);
+       // [OperationContract]
+       // bool searchProductPerson(Product pt);
+       // [OperationContract]
+       // Product getProductPerson(Product pt);
         [OperationContract]
         Product getProductStore(Product pt);
         [OperationContract]
@@ -42,6 +38,6 @@ namespace Storelib
         [OperationContract]
         bool checkPassword(String nm, String pw);
         [OperationContract]
-        Product getProductTestStore(String nm);
+        Product searchProductStore(String nm);
     }
  }

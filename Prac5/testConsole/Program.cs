@@ -12,6 +12,7 @@ namespace testConsole
         static void Main(string[] args)
         {            
          ServiceStoreClient StoreProxy = new ServiceStoreClient();
+         //Person person;
 
           Console.WriteLine("test console is running");
            StoreProxy.startup();
@@ -28,15 +29,15 @@ namespace testConsole
                {
                    Console.WriteLine("error");
                }*/
-              if (StoreProxy.buyProduct(StoreProxy.getProductTestStore("map"), 1))
+              /*if (StoreProxy.buyProduct(StoreProxy.getProductTestStore("map"), 1))
               {
                   Console.WriteLine("true");
               }
               else
               {
                   Console.WriteLine("false");
-              }
-            /* if (StoreProxy.signup("Piet", "tieP"))
+              }*/
+            /* if (StoreProxy.signup("Rob", "boR"))
               {
                   Console.WriteLine("true");
               }
