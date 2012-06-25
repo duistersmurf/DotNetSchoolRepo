@@ -1,0 +1,26 @@
+﻿<Page x:Class="WPFConsole.StorePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="373" d:DesignWidth="762"
+	Title="StorePage">
+
+    <Grid Height="372" Width="762">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="506*" />
+            <ColumnDefinition Width="256*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Height="253" HorizontalAlignment="Left" Margin="20,57,0,0" Name="listBox1" VerticalAlignment="Top" Width="207" SelectionChanged="listBox1_SelectionChanged" />
+        <Button Content="Buy" Height="23" HorizontalAlignment="Left" Margin="315,326,0,0" Name="button1" VerticalAlignment="Top" Width="124" Click="button1_Click" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="186,324,0,0" Name="textBox1" VerticalAlignment="Top" Width="97" />
+        <Label Content="Amount" Height="24" HorizontalAlignment="Left" Margin="103,325,0,0" Name="label1" VerticalAlignment="Top" Width="56" />
+        <ListBox Height="253" HorizontalAlignment="Left" Margin="272,57,0,0" Name="listBox2" VerticalAlignment="Top" Width="207" />
+        <Button Content="Refresh" Height="25" HorizontalAlignment="Left" Margin="169,326,0,0" Name="button2" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="button2_Click" />
+        <Label Content="Saldo:" Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="131,12,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Grid.Column="1" Height="28" HorizontalAlignment="Left" Margin="179,12,0,0" Name="label3" VerticalAlignment="Top" Width="53" />
+        <Label Content="Store Products" Height="28" Margin="64,23,0,0" Name="label4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="95" />
+        <Label Content="My Products" Height="28" HorizontalAlignment="Left" Margin="315,23,0,0" Name="label5" VerticalAlignment="Top" Width="93" />
+    </Grid>
+</Page>

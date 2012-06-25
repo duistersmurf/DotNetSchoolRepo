@@ -8,44 +8,32 @@ using testConsole.StoreService;
 namespace testConsole
 {
     class Program
-    {
+    {        
         static void Main(string[] args)
-        {            
-         ServiceStoreClient StoreProxy = new ServiceStoreClient();
-         //Person person;
+        {
+           Person p = new Person();
+           List<Product> lps = new List<Product>();
+           List<Product> lpp = new List<Product>();
+        ServiceStoreClient StoreProxy = new ServiceStoreClient();
 
           Console.WriteLine("test console is running");
-           StoreProxy.startup();
-         //     Console.WriteLine(StoreProxy.startup());
-        //      StoreProxy.setPerson("delta","atled");
-
-            
-               Console.WriteLine("startup completed");
-              /*if (StoreProxy.login("Henk","kneH"))
+          Console.WriteLine(StoreProxy.startup());                     
+          Console.WriteLine("startup completed");
+          Console.WriteLine(StoreProxy.signup("Henk"));
+          Console.WriteLine("start login");
+              p = (Person)StoreProxy.login("Henk", "Henk123");
+           Console.WriteLine(p.Name);
+               if (StoreProxy.buyProduct(StoreProxy.getProduct(1), 2, p))
                {
-                   Console.WriteLine("true");
+                   Console.WriteLine("nice");
                }
-              else
+               else
                {
                    Console.WriteLine("error");
-               }*/
-              /*if (StoreProxy.buyProduct(StoreProxy.getProductTestStore("map"), 1))
-              {
-                  Console.WriteLine("true");
-              }
-              else
-              {
-                  Console.WriteLine("false");
-              }*/
-            /* if (StoreProxy.signup("Rob", "boR"))
-              {
-                  Console.WriteLine("true");
-              }
-              else
-              {
-                  Console.WriteLine("false");
-              }*/
+               }       
+
              Console.ReadKey();
         }
+
     }
 }

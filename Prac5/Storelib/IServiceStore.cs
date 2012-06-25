@@ -12,32 +12,30 @@ namespace Storelib
     public interface IServiceStore
     {
         [OperationContract]
-        void startup();
+        string startup();
         [OperationContract]
         Person login(String nm, String pw);
         [OperationContract]
-        bool signup(String nm, String pw);
+        string signup(String nm);
         [OperationContract]
-        void setProductStore(String nm, int pr);
+        bool buyProduct(Product pt, int amount, Person p);
         [OperationContract]
-        List<Product> setPersonProduct(Person p);
+        int getAmountStore(int id);
         [OperationContract]
-        List<int> getJProductID(Person p);
-       // [OperationContract]
-       // bool buyProduct(Product pt, int aantal);
-        //[OperationContract]
-        //void setProductPerson();
-       // [OperationContract]
-       // bool searchProductPerson(Product pt);
-       // [OperationContract]
-       // Product getProductPerson(Product pt);
+        Product getProduct(int productid);
         [OperationContract]
-        Product getProductStore(Product pt);
+        List<Product> getProductListStore();
         [OperationContract]
-        bool searchPerson(String nm);
+        List<Product> getProductListPerson(int personid);
         [OperationContract]
-        bool checkPassword(String nm, String pw);
-        [OperationContract]
-        Product searchProductStore(String nm);
+        int getSaldoPerson(int pid);
+     //   [OperationContract]
+     //   Product getProductStore(Product pt);
+     //   [OperationContract]
+    //    bool searchPerson(String nm);
+   //     [OperationContract]
+    //    bool checkPassword(String nm, String pw);
+    //    [OperationContract]
+   //     Product searchProductStore(String nm);*/
     }
  }

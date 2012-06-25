@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="42e97a65-39e1-4740-8d44-d95b1bc7d25f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ebb9a3ea-6383-4abd-9ff6-7ff2cabd3ca8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,11 +21,11 @@
     <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="f8d67899-ec2e-4503-bab6-ed478cd6f288" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="607930e2-8a63-4500-9990-178be1feb4f8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="6b4f0e8e-ed60-44a7-a141-290ca879eb55" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd1" />
-    <MetadataFile FileName="ServiceStore.wsdl" MetadataType="Wsdl" ID="89cf88ac-bcfb-4105-b604-dec24cd5d138" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?wsdl" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="9a4d4edc-2fe2-42e3-bc8b-be5cadc49040" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="7efbb3e8-0f66-44b5-a38d-631f3bd4ad69" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="3fef5e4b-15aa-4e6b-b0f7-4002d0c43c8e" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd0" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="c3c00fc2-2df9-49b8-bd68-b5413a8b487d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd1" />
+    <MetadataFile FileName="ServiceStore.wsdl" MetadataType="Wsdl" ID="b21a9351-3238-474f-bb7a-804452a49ea3" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="90481bf2-de77-4e7c-bf9f-3b124283a15a" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Storelib/ServiceStore/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

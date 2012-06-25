@@ -20,7 +20,14 @@ namespace HostServer
                 using (ServiceHost host = new ServiceHost(typeof(ServiceStore)))
                 {
                     Console.WriteLine(" try to start host");
-                    host.Open();
+                    try
+                    {
+                        host.Open();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("open host error" + e.Message);
+                    }
                     Console.WriteLine("host is running");
                     Console.ReadLine();
                 }

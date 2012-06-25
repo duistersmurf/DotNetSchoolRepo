@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace testConsole.StoreService {
+namespace WPFConsole.StoreService {
     using System.Runtime.Serialization;
     using System;
     
@@ -32,7 +32,7 @@ namespace testConsole.StoreService {
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private testConsole.StoreService.Product[] PersonsProductsField;
+        private WPFConsole.StoreService.Product[] PersonsProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int SaldoField;
@@ -87,7 +87,7 @@ namespace testConsole.StoreService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public testConsole.StoreService.Product[] PersonsProducts {
+        public WPFConsole.StoreService.Product[] PersonsProducts {
             get {
                 return this.PersonsProductsField;
             }
@@ -223,34 +223,37 @@ namespace testConsole.StoreService {
         string startup();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/login", ReplyAction="http://tempuri.org/IServiceStore/loginResponse")]
-        testConsole.StoreService.Person login(string nm, string pw);
+        WPFConsole.StoreService.Person login(string nm, string pw);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/signup", ReplyAction="http://tempuri.org/IServiceStore/signupResponse")]
         string signup(string nm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/buyProduct", ReplyAction="http://tempuri.org/IServiceStore/buyProductResponse")]
-        bool buyProduct(testConsole.StoreService.Product pt, int amount, testConsole.StoreService.Person p);
+        bool buyProduct(WPFConsole.StoreService.Product pt, int amount, WPFConsole.StoreService.Person p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/getAmountStore", ReplyAction="http://tempuri.org/IServiceStore/getAmountStoreResponse")]
         int getAmountStore(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/getProduct", ReplyAction="http://tempuri.org/IServiceStore/getProductResponse")]
-        testConsole.StoreService.Product getProduct(int productid);
+        WPFConsole.StoreService.Product getProduct(int productid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/getProductListStore", ReplyAction="http://tempuri.org/IServiceStore/getProductListStoreResponse")]
-        testConsole.StoreService.Product[] getProductListStore();
+        WPFConsole.StoreService.Product[] getProductListStore();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/getProductListPerson", ReplyAction="http://tempuri.org/IServiceStore/getProductListPersonResponse")]
-        testConsole.StoreService.Product[] getProductListPerson(int personid);
+        WPFConsole.StoreService.Product[] getProductListPerson(int personid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceStore/getSaldoPerson", ReplyAction="http://tempuri.org/IServiceStore/getSaldoPersonResponse")]
+        int getSaldoPerson(int pid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceStoreChannel : testConsole.StoreService.IServiceStore, System.ServiceModel.IClientChannel {
+    public interface IServiceStoreChannel : WPFConsole.StoreService.IServiceStore, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceStoreClient : System.ServiceModel.ClientBase<testConsole.StoreService.IServiceStore>, testConsole.StoreService.IServiceStore {
+    public partial class ServiceStoreClient : System.ServiceModel.ClientBase<WPFConsole.StoreService.IServiceStore>, WPFConsole.StoreService.IServiceStore {
         
         public ServiceStoreClient() {
         }
@@ -275,7 +278,7 @@ namespace testConsole.StoreService {
             return base.Channel.startup();
         }
         
-        public testConsole.StoreService.Person login(string nm, string pw) {
+        public WPFConsole.StoreService.Person login(string nm, string pw) {
             return base.Channel.login(nm, pw);
         }
         
@@ -283,7 +286,7 @@ namespace testConsole.StoreService {
             return base.Channel.signup(nm);
         }
         
-        public bool buyProduct(testConsole.StoreService.Product pt, int amount, testConsole.StoreService.Person p) {
+        public bool buyProduct(WPFConsole.StoreService.Product pt, int amount, WPFConsole.StoreService.Person p) {
             return base.Channel.buyProduct(pt, amount, p);
         }
         
@@ -291,16 +294,20 @@ namespace testConsole.StoreService {
             return base.Channel.getAmountStore(id);
         }
         
-        public testConsole.StoreService.Product getProduct(int productid) {
+        public WPFConsole.StoreService.Product getProduct(int productid) {
             return base.Channel.getProduct(productid);
         }
         
-        public testConsole.StoreService.Product[] getProductListStore() {
+        public WPFConsole.StoreService.Product[] getProductListStore() {
             return base.Channel.getProductListStore();
         }
         
-        public testConsole.StoreService.Product[] getProductListPerson(int personid) {
+        public WPFConsole.StoreService.Product[] getProductListPerson(int personid) {
             return base.Channel.getProductListPerson(personid);
+        }
+        
+        public int getSaldoPerson(int pid) {
+            return base.Channel.getSaldoPerson(pid);
         }
     }
 }

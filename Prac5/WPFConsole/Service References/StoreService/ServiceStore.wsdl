@@ -55,6 +55,12 @@
   <wsdl:message name="IServiceStore_getProductListPerson_OutputMessage">
     <wsdl:part name="parameters" element="tns:getProductListPersonResponse" />
   </wsdl:message>
+  <wsdl:message name="IServiceStore_getSaldoPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSaldoPerson" />
+  </wsdl:message>
+  <wsdl:message name="IServiceStore_getSaldoPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSaldoPersonResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServiceStore">
     <wsdl:operation name="startup">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/startup" message="tns:IServiceStore_startup_InputMessage" />
@@ -87,6 +93,10 @@
     <wsdl:operation name="getProductListPerson">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getProductListPerson" message="tns:IServiceStore_getProductListPerson_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getProductListPersonResponse" message="tns:IServiceStore_getProductListPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSaldoPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceStore/getSaldoPerson" message="tns:IServiceStore_getSaldoPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceStore/getSaldoPersonResponse" message="tns:IServiceStore_getSaldoPerson_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServiceStore" type="tns:IServiceStore">
@@ -156,6 +166,15 @@
     </wsdl:operation>
     <wsdl:operation name="getProductListPerson">
       <soap:operation soapAction="http://tempuri.org/IServiceStore/getProductListPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSaldoPerson">
+      <soap:operation soapAction="http://tempuri.org/IServiceStore/getSaldoPerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
