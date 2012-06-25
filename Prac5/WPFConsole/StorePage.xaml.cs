@@ -51,13 +51,12 @@ namespace WPFConsole
                     if ((pdt.ProductName + " [" + pt.AvalibleProducts + "]" + " ("+pt.ProductPrice + ")").Equals(item))
                     {
                         if (ssc.buyProduct(pdt, int.Parse(textBox1.Text), ClientController.loginperson))
-                        {
-                            MessageBox.Show("buy succesfull");
+                        {                           
                             refreshStoreListBox();
                             refreshPersonListBox();
                             refreshSaldo();
-
-
+                            textBox1.Text = "";
+                            MessageBox.Show("buy succesfull");
                         }
                         else
                         {

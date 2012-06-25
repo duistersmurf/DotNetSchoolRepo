@@ -10,7 +10,6 @@
     <Grid Height="329" Width="410">
         <TextBox Height="22" HorizontalAlignment="Left" Margin="105,97,0,0" Name="tbname" VerticalAlignment="Top" Width="165" />
         <Label Content="Username" Height="28" HorizontalAlignment="Left" Margin="25,91,0,0" Name="lbUserName" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="105,135,0,0" Name="tbpw" VerticalAlignment="Top" Width="165" />
         <Label Content="Password" Height="28" HorizontalAlignment="Left" Margin="25,135,0,0" Name="lbPassWord" VerticalAlignment="Top" />
         <Label Content="No accouont yet, sign up here." Height="28" HorizontalAlignment="Left" Margin="12,249,0,0" Name="lbregisteren" VerticalAlignment="Top" />
         <Label Height="28" HorizontalAlignment="Left" Margin="105,180,0,0" Name="lberror" VerticalAlignment="Top" Width="165" />
@@ -18,5 +17,6 @@
         <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="140,220,0,0" Name="btlogin" VerticalAlignment="Top" Width="75" Click="btlogin_Click" />
         <Label Content="Login" Height="28" HorizontalAlignment="Left" Margin="140,47,0,0" Name="lbsubtitle" VerticalAlignment="Top" />
         <Label Content="The Store" Height="29" HorizontalAlignment="Left" Margin="126,12,0,0" Name="LbTitleloginpage" VerticalAlignment="Top" FontSize="15" Width="116" FontStretch="Normal" FontFamily="Stylus BT" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="105,135,0,0" Name="tbpw" VerticalAlignment="Top" Width="165" />
     </Grid>
 </Page>

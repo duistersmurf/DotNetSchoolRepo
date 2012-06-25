@@ -29,9 +29,9 @@ namespace WPFConsole
         {
             lberror.Content = "";
             ServiceStoreClient ssc = new ServiceStoreClient();
-            if (ssc.login(tbname.Text, tbpw.Text) != null)
+            if (ssc.login(tbname.Text, tbpw.Password) != null)
             {
-                ClientController.loginperson = ssc.login(tbname.Text, tbpw.Text);
+                ClientController.loginperson = ssc.login(tbname.Text, tbpw.Password);
                 NavigationWindow nw = new NavigationWindow();
                 nw.ShowsNavigationUI = false;
                 nw.Navigate(new StorePage());
